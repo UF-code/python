@@ -64,7 +64,7 @@ def oneToNinetyNine():
 
 
 # Kullanıcıdan bir IP adresi isteyiniz. İstediğiniz bu IP adresinden sonraki 5 değeri çıktı olarak 
-# veren programı yazınız (30p).
+# veren programı yazınız
 # Örnek: 192 168 255 252
 # Çıktı: 192 168 255 253
 #        192 168 255 254
