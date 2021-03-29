@@ -32,6 +32,8 @@ def dividableToFive(list_of_numbers):
         if(num <= 150 and num%5 == 0):
             print(num)
 
+
+
 # Kullanıcıdan 3 adet (a, b ve c) değer alınız. a (dahil) ve b (dahil) arasında kaç sayının c’ye 
 # bölünebildiğini belirleyen programı yazınız
 
@@ -42,4 +44,20 @@ def findingDividableNumbers(first, second, third):
             print(f'number {num} can divide {third}')
             counter+=1
     return f'{counter} numbers can divide number {third}'
+
+
+
+# Aşağıdaki çıktıyı veren programı yazınız (10p).
+# 1 – 99
+# 2 – 98
+# 3 – 97
+# ..
+# ..
+# ..
+# 98 – 2
+# 99 – 1
+
+def oneToNinetyNine():
+    for i in range(1, 100):
+        print(f' {i} - {100-i} ')
 
