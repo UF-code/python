@@ -29,6 +29,17 @@ def howManyDigits2(num):
 
 def dividableToFive(list_of_numbers):
     for num in list_of_numbers:
-        if(num <= 150 and n%5 == 0):
-            print(n)
+        if(num <= 150 and num%5 == 0):
+            print(num)
+
+# Kullanıcıdan 3 adet (a, b ve c) değer alınız. a (dahil) ve b (dahil) arasında kaç sayının c’ye 
+# bölünebildiğini belirleyen programı yazınız
+
+def findingDividableNumbers(first, second, third):
+    counter = 0
+    for num in range(first,second+1):
+        if(third % num == 0):
+            print(f'number {num} can divide {third}')
+            counter+=1
+    return f'{counter} numbers can divide number {third}'
 
