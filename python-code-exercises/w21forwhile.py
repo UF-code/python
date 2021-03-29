@@ -10,7 +10,7 @@ def multiplicationTable(num):
 #  Girilen bir sayının kaç basamaklı olduğunu belirleyen programı while döngüsü ile gerçekleştiriniz
 
 def howManyDigits(num):
-    return f'{num} number has {len(list(num))} digits'
+    return f'{num} number has {len(list(string(num)))} digits'
 
 #alternative with while
 def howManyDigits2(num):
@@ -47,7 +47,7 @@ def findingDividableNumbers(first, second, third):
 
 
 
-# Aşağıdaki çıktıyı veren programı yazınız (10p).
+# Aşağıdaki çıktıyı veren programı yazınız.
 # 1 – 99
 # 2 – 98
 # 3 – 97
@@ -61,3 +61,42 @@ def oneToNinetyNine():
     for i in range(1, 100):
         print(f' {i} - {100-i} ')
 
+
+
+# Kullanıcıdan bir IP adresi isteyiniz. İstediğiniz bu IP adresinden sonraki 5 değeri çıktı olarak 
+# veren programı yazınız (30p).
+# Örnek: 192 168 255 252
+# Çıktı: 192 168 255 253
+#        192 168 255 254
+#        192 168 255 255
+#        192 169 0   0
+#        192 169 0   1
+
+
+def increaseIpAddress(ip_address):
+    print(f' {ip_address} ')
+    ip_address= ip_address.split('.')
+    unit0 = int(ip_address[3])
+    unit1 = int(ip_address[2])
+    unit2 = int(ip_address[1])
+    unit3 = int(ip_address[0])
+
+    for i in range(1,6):
+        unit0+=1
+        if (unit0 == 256):
+            unit0 = 0
+            unit1+=1
+            if(unit1 == 256):
+                unit1 = 0
+                unit2+=1
+                if(unit2 == 256):
+                    unit2 = 0
+                    unit3+=1
+                    if(unit3 == 256):
+                        unit3= 0
+        else:
+            print(f' {unit3}.{unit2}.{unit1}.{unit0} ')
+
+
+
+increaseIpAddress('255.255.255.255')
