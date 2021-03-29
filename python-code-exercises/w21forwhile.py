@@ -96,7 +96,3 @@ def increaseIpAddress(ip_address):
                         unit3= 0
         else:
             print(f' {unit3}.{unit2}.{unit1}.{unit0} ')
-
-
-
-increaseIpAddress('255.255.255.255')
