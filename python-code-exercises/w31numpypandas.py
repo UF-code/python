@@ -24,3 +24,24 @@ weatherForTennisDataFramed = pd.DataFrame(weatherForTennis, columns= ['Hava Duru
 
 described = weatherForTennisDataFramed.describe()
 weatherForTennisDataFramed.info()
+
+
+
+import numpy as np 
+
+# (3,4) boyutunda bir dizi oluşturunuz. Oluşturduğunuz bu dizinin boyutunu (6,2) olacak şekilde değiştiriniz 
+threeToFour = np.array([[1,2,3], [4,5,6], [7,8,9], [10,11,12]])
+
+sixToTwo= np.resize(threeToFour, (6,2))
+
+
+#  İki tane (3,3) boyutunda rastgele sayılardan meydana bir dizi oluşturunuz. Oluşturulan bu diziyi 
+# hem yatay hem de dikey olacak şekilde istif (stack) ediniz
+first_random_array = np.random.rand(3,3)
+second_random_array = np.random.rand(3,3)
+
+# vertical stack
+vertical_stack = np.vstack((first_random_array, second_random_array))
+
+# horizantal stack
+horizantal_stack = np.hstack((first_random_array, second_random_array))
