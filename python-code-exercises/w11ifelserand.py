@@ -21,3 +21,22 @@ def isTriangle(first_angle, second_angle, third_angle):
 
 
 
+# içinde uzaylı olan bir oyun geliştirdiğinizi düşünün. uzaylı_rengi isminde bir değişken oluşturun 
+# ve bu değişken string türünde değerler alsın. Bu değişkene kırmızı, yeşil ya da sarı 
+# değerlerinden birini klavyeden veriniz. Eğer uzaylının rengi yeşilse “Tebrikler, yeşil uzaylıya ateş 
+# ettiğiniz için 5 puan kazandınız” şeklinde bir çıktı veriniz. Eğer rengi yeşil değilse "Tebrikler, yeşil 
+# olmayan uzaylıya ateş ettiğiniz için 10 puan kazandınız" şeklinde çıktı veriniz. Senaryoya ait 
+# programı yazınız
+
+from random import choice
+
+def alienColor(alien_color):
+    color= ['red', 'green', 'yellow']
+
+    if(alien_color == choice(color)):
+        return f'Congrats, You hit the right one! - {alien_color} '
+    elif(alien_color in color):
+        return f'You shoot the other alien - {alien_color}'
+    else:
+        return 'Invalid Credentials'
+
