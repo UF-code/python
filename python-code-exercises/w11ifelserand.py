@@ -28,9 +28,8 @@ def isTriangle(first_angle, second_angle, third_angle):
 # olmayan uzaylıya ateş ettiğiniz için 10 puan kazandınız" şeklinde çıktı veriniz. Senaryoya ait 
 # programı yazınız
 
-from random import choice
-
 def alienColor(alien_color):
+    from random import choice
     color= ['red', 'green', 'yellow']
 
     if(alien_color == choice(color)):
@@ -39,4 +38,3 @@ def alienColor(alien_color):
         return f'You shoot the other alien - {alien_color}'
     else:
         return 'Invalid Credentials'
-
