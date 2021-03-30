@@ -37,17 +37,27 @@ y_test= to_categorical(y_test)
 
 
 
-# building Artificial Neural Network model
+
 from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import Dense
 
+
 # (1) Verilen kodu inceleyerek kendi modelinizi oluşturunuz
+# building Artificial Neural Network model
 model = Sequential()
-model.add(Dense(20, input_dim=20, activation="sigmoid"))
-model.add(Dense(16, activation="sigmoid"))
-model.add(Dense(12, activation="sigmoid"))
-model.add(Dense(8, activation="sigmoid"))
+model.add(Dense(20, input_dim=20, activation="relu"))
+model.add(Dense(16, activation="relu"))
+model.add(Dense(12, activation="relu"))
+model.add(Dense(8, activation="relu"))
 model.add(Dense(4, activation="softmax"))
 model.summary()
 
 
+# (1) Verilen kodu inceleyerek kendi modelinizi oluşturunuz
+# compiling the model
+model.compile(loss="caterogical_crossentropy", optimizer="adam", metrics=["accuracy"])
+
+
+# (1) Verilen kodu inceleyerek kendi modelinizi oluşturunuz
+# training the model
+model.fit(X_train, y_train, validation_data=(X_test, y_test), epochs=100)
