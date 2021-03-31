@@ -6,6 +6,11 @@ import pandas as pd
 # loading dataset
 data= pd.read_csv('phone_data.csv')
 
+# (3) Verisetinde (telefon_fiyat_değişimi) toplam 20 adet özellik bulunmaktadır. Bu verisetinden 
+# “blue”, “fc”, “int_memory”, “ram” ve “wifi” değerlerini çıkarıp, sınıflandırma işlemini tekrar 
+# yapınız
+data= data.drop(['blue', 'fc', 'int_memory', 'ram', 'wifi'], axis=1)
+
 
 # class specification
 from sklearn.preprocessing import LabelEncoder, StandardScaler
@@ -34,6 +39,14 @@ for train_index, test_index in kf.split(X):
     X_train, X_test= X[train_index], X[test_index]
     y_train, y_test= y[train_index], y[test_index]
 
+# from sklearn.model_selection import StratifiedKFold
+# skf= StratifiedKFold(n_splits=2)
+# skf.get_n_splits(X, y)
+
+# for train_index, test_index in skf.split(X, y):
+#     X_train, X_test = X[train_index], X[test_index]
+#     y_train, y_test = y[train_index], y[test_index]
+
 
 
 # preperation of datasets for to learning and testing
@@ -56,10 +69,9 @@ from tensorflow.keras.layers import Dense
 # (1) Verilen kodu inceleyerek kendi modelinizi oluşturunuz
 # building Artificial Neural Network model
 model = Sequential()
-model.add(Dense(20, input_dim=20, activation="sigmoid"))
-model.add(Dense(16, activation="sigmoid"))
+model.add(Dense(15, input_dim=15, activation="sigmoid"))
 model.add(Dense(12, activation="sigmoid"))
-model.add(Dense(8, activation="sigmoid"))
+model.add(Dense(9, activation="sigmoid"))
 model.add(Dense(4, activation="softmax"))
 model.summary()
 
