@@ -52,7 +52,7 @@ model.compile(loss="categorical_crossentropy", optimizer="adam", metrics="accura
 
 
 # modelin egitilmesi
-model.fit(X_train, y_train, validation_data=(X_test, y_test), epochs= 50)
+model.fit(X_train, y_train, validation_data=(X_test, y_test), epochs= 100)
 
 
 # gerekli degerlerin gosterilmesi
@@ -60,6 +60,7 @@ print('Ortalama egitim kaybi: ', np.mean(model.history.history["loss"]))
 print('Ortalama egitim basarimi: ', np.mean(model.history.history["accuracy"]))
 print('Ortalama dogrulama kaybi: ', np.mean(model.history.history["val_loss"]))
 print('Ortalama dogrulama basarimi: ', np.mean(model.history.history["val_accuracy"]))
+print('Son dogrulama basarimi: ', model.history.history["val_accuracy"][-1])
 
 
 # egitim ve dogrulama basarimlarinin gosterilmesi

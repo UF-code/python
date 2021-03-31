@@ -18,9 +18,21 @@ X= data.drop(['price_range'], axis=1)
 y= labels
 
 
+
 # standardization of datasets
 sc= StandardScaler()
 X= sc.fit_transform(X)
+
+
+# (2) Verilen kodu inceleyerek çapraz doğrulama işlemi yapınız ve buna göre başarımı değerlendiriniz 
+# cross validation with KFold
+from sklearn.model_selection import KFold
+kf = KFold(n_splits=2)
+kf.get_n_splits(X)
+
+for train_index, test_index in kf.split(X):
+    X_train, X_test= X[train_index], X[test_index]
+    y_train, y_test= y[train_index], y[test_index]
 
 
 
@@ -37,10 +49,9 @@ y_test= to_categorical(y_test)
 
 
 
-
+# libraries for Artificial Neural Network
 from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import Dense
-
 
 # (1) Verilen kodu inceleyerek kendi modelinizi oluşturunuz
 # building Artificial Neural Network model
@@ -89,3 +100,4 @@ print('Mean of Training Loss: ', np.mean(model.history.history["loss"]))
 print('Mean of Training Accuracy: ', np.mean(model.history.history["accuracy"]))
 print('Mean of Validation Loss: ', np.mean(model.history.history["val_loss"]))
 print('Mean of Validation Accuracy: ', np.mean(model.history.history["val_accuracy"]))
+print('Last Validation Accuracy: ', model.history.history["val_accuracy"][-1])
