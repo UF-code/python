@@ -23,9 +23,16 @@ sc= StandardScaler()
 X= sc.fit_transform(X)
 
 
-# preparing dataset for Training and Testing
-from sklearn.model_selection import train_test_split
-X_train, X_test, y_train, y_test= train_test_split(X, y, test_size= 0.2)
+
+# cross validation with KFold
+from sklearn.model_selection import KFold
+kf = KFold(n_splits=2)
+kf.get_n_splits(X)
+
+for train_index, test_index in kf.split(X):
+    X_train, X_test= X[train_index], X[test_index]
+    y_train, y_test= y[train_index], y[test_index]
+
 
 
 # categorizin outputs 
@@ -42,7 +49,7 @@ model= Sequential()
 model.add(Dense(8, input_dim=8, activation="sigmoid"))
 model.add(Dense(6,  activation="sigmoid"))
 model.add(Dense(4,  activation="sigmoid"))
-model.add(Dense(2,  activation="softmax"))
+model.add(Dense(2,  activation="sigmoid"))
 model.summary()
 
 

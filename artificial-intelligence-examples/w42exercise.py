@@ -50,8 +50,8 @@ for train_index, test_index in kf.split(X):
 
 
 # preperation of datasets for to learning and testing
-from sklearn.model_selection import train_test_split
-X_train, X_test, y_train, y_test= train_test_split(X, y, test_size= 0.2)
+# from sklearn.model_selection import train_test_split
+# X_train, X_test, y_train, y_test= train_test_split(X, y, test_size= 0.2)
 
 
 
@@ -72,7 +72,7 @@ model = Sequential()
 model.add(Dense(15, input_dim=15, activation="sigmoid"))
 model.add(Dense(12, activation="sigmoid"))
 model.add(Dense(9, activation="sigmoid"))
-model.add(Dense(4, activation="softmax"))
+model.add(Dense(4, activation="sigmoid"))
 model.summary()
 
 
